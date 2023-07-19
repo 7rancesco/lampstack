@@ -1,0 +1,10 @@
+services:
+
+  server: 
+    ports:
+      - 80:80
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/var/www/francesco

@@ -18,3 +18,4 @@ RUN sudo apt install php-mysql -y
 RUN sudo mkdir /var/www/francesco
 COPY ./virtualhost.conf /etc/apache2/sites-available/francesco.conf
 RUN sudo a2ensite francesco
+RUN sudo a2dissite 000-default

@@ -17,5 +17,6 @@ RUN sudo apt install libapache2-mod-php -y
 RUN sudo apt install php-mysql -y
 RUN sudo mkdir /var/www/francesco
 COPY ./virtualhost.conf /etc/apache2/sites-available/francesco.conf
+COPY ./ssl-virtualhost.conf /etc/apache2/sites-available/ssl-francesco.conf
 RUN sudo a2ensite francesco
 RUN sudo a2dissite 000-default

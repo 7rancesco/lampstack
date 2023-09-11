@@ -45,3 +45,41 @@ In new terminal
 - sudo service mysql start
 - exit
 - open https://francesco.site
+
+# TIPS
+
+## Multi domain
+- Duplicate vhost files
+- add rows COPY in Dockerfile
+- create another dir as app
+- Adding volume in docker-compose.yml volumes
+
+
+## Installing Symfony
+LAMPSTACK FIX
+
+- sudo apt-get install -y php-simplexml 
+
+
+SYMFONY 
+
+- apt install -y curl
+- curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
+- sudo apt install symfony-cli
+- symfony check:requirements
+- symfony new app_name
+
+*Ignore error: "fatal: unable to auto-detect email address"
+
+- sudo nano /etc/apache2/sites-available/ssl-app_name.conf
+- Paste this after document root:
+
+    <Directory /var/www/app_name>
+        AllowOverride None
+        Require all granted
+        FallbackResource /myapp/public/index.php
+    </Directory>
+
+# Task
+- Fix mysql auto start 
+- Adding phpMyAdmin

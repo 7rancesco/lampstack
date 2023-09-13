@@ -20,8 +20,8 @@ RUN sudo apt install -y curl
 RUN sudo apt install nano
 RUN sudo mkdir /var/www/app_name
 RUN sudo a2enmod ssl
-COPY ./util/apache-selfsigned.crt /etc/ssl/certs/apache-selfsigned.crt
-COPY ./util/apache-selfsigned.key /etc/ssl/certs/apache-selfsigned.key
+COPY ./z_util/apache-selfsigned.crt /etc/ssl/certs/apache-selfsigned.crt
+COPY ./z_util/apache-selfsigned.key /etc/ssl/certs/apache-selfsigned.key
 COPY ./virtualhost.conf /etc/apache2/sites-available/app_name.conf
 COPY ./ssl-virtualhost.conf /etc/apache2/sites-available/ssl-app_name.conf
 RUN sudo a2ensite ssl-app_name.conf

@@ -9,7 +9,7 @@
 # VIRTUALHOST SETTING
 
 - Create custom name with the following command:
-- - sed -i 's/app_name/custom_name_here/g' *
+- - sed -i '' 's/app_name/custom_name_here/g' *
 - sudo nano /etc/hosts
 - Add your custom domain name:
 - - Ex: 127.0.0.1       localhost app_name.site

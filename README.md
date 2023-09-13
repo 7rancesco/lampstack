@@ -51,11 +51,33 @@
 - symfony check:requirements
 - symfony new symfony_project_name
 
+- ### VHOST SETT
 - sudo nano /etc/apache2/sites-available/ssl-app_name.conf
-- Paste this after document root:
+
+(OPTION 1)
+- - #### Via FallbackResource
 
     <Directory /var/www/app_name>
         AllowOverride None
         Require all granted
         FallbackResource /symfony_project_name/public/index.php
     </Directory>
+
+(OPTION 2)
+- - #### Via .htaccess
+
+    <Directory /var/www/app_name>
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+Move the project
+- - mv symfony_project_name/* .
+- - mv symfony_project_name/.env .
+- - mv symfony_project_name/.gitignore .
+- - rm -rf symfony_project_name    
+
+- - Then copy z_util/symfony_apache/project/.htaccess into the /project
+- - Then copy z_util/symfony_apache/public/.htaccess into the /project/public
+- - RUN sudo a2enmod rewrite 
+- - Restart container

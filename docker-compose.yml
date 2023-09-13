@@ -8,4 +8,4 @@ services:
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - ./app:/var/www/francesco
+      - ./app:/var/www/app_name

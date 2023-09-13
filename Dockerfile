@@ -15,8 +15,11 @@ RUN echo "tzdata tzdata/Areas select Europe" > /tmp/preseed.txt; \
 RUN sudo apt install php -y
 RUN sudo apt install libapache2-mod-php -y
 RUN sudo apt install php-mysql -y
-RUN sudo mkdir /var/www/francesco
-COPY ./virtualhost.conf /etc/apache2/sites-available/francesco.conf
-COPY ./ssl-virtualhost.conf /etc/apache2/sites-available/ssl-francesco.conf
-RUN sudo a2ensite francesco
+RUN sudo apt-get install -y php-simplexml
+RUN sudo apt install -y curl
+RUN sudo apt install nano
+RUN sudo mkdir /var/www/app_name
+COPY ./virtualhost.conf /etc/apache2/sites-available/app_name.conf
+COPY ./ssl-virtualhost.conf /etc/apache2/sites-available/ssl-app_name.conf
+RUN sudo a2ensite app_name
 RUN sudo a2dissite 000-default

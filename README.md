@@ -1,7 +1,8 @@
 # SETT VIRTUALHOST
 ## Customize ServerName 
-- Replace "francesco" to your custom name in:
-- - Virtualhost.conf
+- Replace "app_name" to your custom name in:
+- - virtualhost.conf
+- - ssl-virtualhost.conf
 - - Dockerfile
 - - DockerCompose.yml
 
@@ -11,40 +12,39 @@
 - Add your custom domain name in the first line after localhost
 
 # INSTALL
-- git clone https://github.com/7rancesco/lampstack.git App_name
-- cd App_name
+- git clone https://github.com/7rancesco/lampstack.git app_name
+- cd app_name
 - rm .gitignore
 - rm -rf .git
 - docker compose up --build
 
 ## Access to container
-In new terminal
-- docker exec -it App_name-server-1 /bin/sh
+- docker exec -it app_name-server-1 /bin/sh
 
 # SET MYSQL from Docker command line
 - sudo service mysql start
 - mysql
-- CREATE USER 'francesco'@'%' IDENTIFIED BY 'password';
+- CREATE USER 'app_name'@'%' IDENTIFIED BY 'password';
 - CREATE DATABASE my_database;
-- GRANT ALL ON my_database.* TO 'francesco'@'%';
+- GRANT ALL ON my_database.* TO 'app_name'@'%';
 - exit
 
 # Enable https
 - sudo a2enmod ssl
 - sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
 - - Common name = your domian name
-- sudo a2ensite ssl-francesco.conf
+- sudo a2ensite ssl-app_name.conf
 - sudo apache2ctl configtest
 - - output (Syntax OK)
 - exit
-- docker stop App_name-server-1
+- docker stop app_name-server-1
 
 # USAGE
-- docker start App_name-server-1
-- docker exec -it App_name-server-1 /bin/sh
+- docker start app_name-server-1
+- docker exec -it app_name-server-1 /bin/sh
 - sudo service mysql start
 - exit
-- open https://francesco.site
+- open https://app_name.site
 
 # TIPS
 
@@ -56,14 +56,8 @@ In new terminal
 
 
 ## Installing Symfony
-LAMPSTACK FIX
 
-- sudo apt-get install -y php-simplexml 
-
-
-SYMFONY 
-
-- apt install -y curl
+- apt install -y curl #
 - curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
 - sudo apt install symfony-cli
 - symfony check:requirements
@@ -77,9 +71,9 @@ SYMFONY
     <Directory /var/www/app_name>
         AllowOverride None
         Require all granted
-        FallbackResource /myapp/public/index.php
+        FallbackResource /symfony_app_name/public/index.php
     </Directory>
 
-# Task
-- Fix mysql auto start 
+# TODO
+- mysql auto start 
 - Adding phpMyAdmin

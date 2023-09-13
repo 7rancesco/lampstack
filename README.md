@@ -30,6 +30,8 @@
 - - docker start app_name-server-1
 - STOP CONTAINER
 - - docker stop app_name-server-1
+- RESTART CONTAINER
+- - docker restart app_name-server-1
 - CONNECT TO CONTAINER
 - - docker exec -it app_name-server-1 /bin/sh
 - START MYSQL
@@ -47,7 +49,7 @@
 - curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
 - sudo apt install symfony-cli
 - symfony check:requirements
-- symfony new symfony_app_name
+- symfony new symfony_project_name
 
 - sudo nano /etc/apache2/sites-available/ssl-app_name.conf
 - Paste this after document root:
@@ -55,5 +57,5 @@
     <Directory /var/www/app_name>
         AllowOverride None
         Require all granted
-        FallbackResource /symfony_app_name/public/index.php
+        FallbackResource /symfony_project_name/public/index.php
     </Directory>

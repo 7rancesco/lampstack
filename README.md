@@ -53,6 +53,7 @@
 
 - ### VHOST SETT
 - sudo nano /etc/apache2/sites-available/ssl-app_name.conf
+- Add under DocumentRoot /var/www/app_name
 
 (OPTION 1)
 - - #### Via FallbackResource
@@ -67,17 +68,10 @@
 - - #### Via .htaccess
 
     <Directory /var/www/app_name>
-        AllowOverride All
+        AllowOverride None
         Require all granted
     </Directory>
 
-Move the project
-- - mv symfony_project_name/* .
-- - mv symfony_project_name/.env .
-- - mv symfony_project_name/.gitignore .
-- - rm -rf symfony_project_name    
+    Example for htaccess in /z_utils/symfony_apache
 
-- - Then copy z_util/symfony_apache/project/.htaccess into the /project
-- - Then copy z_util/symfony_apache/public/.htaccess into the /project/public
-- - RUN sudo a2enmod rewrite 
-- - Restart container
+ 

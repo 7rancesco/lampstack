@@ -1,9 +1,9 @@
 RewriteEngine On
 
-RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+RewriteCond %{THE_REQUEST} app_name/public/([^\s?]*) [NC]
 RewriteRule ^ %1 [L,NE,R=302]
 
-RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+RewriteRule ^$ app_name/public/$1 [L,NC]
 
 
 
@@ -12,7 +12,7 @@ RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
 
 # RewriteRule ^app_name((?!app_name/).*)$ app_name/public/$2 [L,NC]
 
-# RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+# RewriteCond %{THE_REQUEST} app_name/public/([^\s?]*) [NC]
 # RewriteRule ^ %1 [L,NE,R=302]
 
-# RewriteRule ^((?!public/).*)$ public/$1 [L,NC]   
+# RewriteRule ^$ app_name/public/$1 [L,NC]

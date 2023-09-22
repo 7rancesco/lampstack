@@ -59,7 +59,7 @@
 - - #### Via FallbackResource
 
     <Directory /var/www/app_name>
-        AllowOverride None
+        AllowOverride All
         Require all granted
         FallbackResource /symfony_project_name/public/index.php
     </Directory>
@@ -68,7 +68,7 @@
 - - #### Via .htaccess
 
     <Directory /var/www/app_name>
-        AllowOverride None
+        AllowOverride All
         Require all granted
     </Directory>
 

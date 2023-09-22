@@ -72,6 +72,6 @@
         Require all granted
     </Directory>
 
-    Example for htaccess in /z_utils/symfony_apache
-
+- - - Example for htaccess in /z_utils/symfony_apache
+- - - Important! Run: sudo a2enmod rewrite
  
